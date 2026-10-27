@@ -50,10 +50,12 @@ All page imagery and the playable video are stored inside this repository. There
 - `media/demo.mp4`: the web video, encoded as H.264 at the original 1280 × 720 resolution, with fast-start metadata for browser playback. The clip has no audio track.
 - `media/main_video.mp4`: the larger original is preserved locally and ignored by Git. It is not needed to run the page.
 - `media/teaser_img.png`, `media/argomap_dense_green.png`, `media/argomap_dense_dry.png`: supplied original figures.
-- `assets/images/`: optimized WebP figures, additional RGB field views, comparison imagery, and the social preview image.
+- `assets/images/`: optimized WebP figures, additional RGB field views and the social preview image.
 - `assets/logos/`: the original institution logos, linked to the institutions' websites.
 
-The paper's pipeline diagram is intentionally omitted. The demo and reconstructions are qualitative visualizations; numerical results are reported separately under the paper's controlled pose-cue evaluation protocol.
+The paper's pipeline diagram is intentionally omitted. The controlled-evaluation section contains two labeled placeholders for the future matched global-cue-only and AgroMap3D views; no comparison images are currently displayed there. The existing demo and field examples remain qualitative visualizations.
+
+The abstract and research descriptions follow the camera-ready manuscript supplied on 27 October 2026. Its abstract's project-URL placeholder is adapted to refer to this page's resources. Results distinguish synthetic-cue anchoring, visual refinement with provider confidence, and dual-rate reliability. Trajectory metrics use per-sequence Sim(3) alignment and do not establish absolute georeferencing, recovered scale accuracy, or independent onboard-cue performance. The page also preserves the keyframe-rate versus dual-rate tradeoff in relative translation and rotation errors.
 
 ## Institution logos
 
