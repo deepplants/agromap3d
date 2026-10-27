@@ -8,7 +8,7 @@ Javed Ahmad¹, Shafiq Ahmad¹, Dario Amiri¹, Fiora Pirri¹˒²<br>
 
 This repository contains the standalone research project website. The implementation and dataset will be linked when released.
 
-Project website (after GitHub Pages is enabled): **https://deepplants.github.io/argomap3d/**
+Project website: **https://deepplants.github.io/agromap3d/**
 
 ## Publish with GitHub Pages
 
@@ -28,7 +28,7 @@ From this repository:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8765/. The site also supports being served beneath its `/argomap3d/` GitHub Pages path. Fonts load from Google Fonts when available, with local system fallbacks.
+Open http://127.0.0.1:8765/. The site also supports being served beneath its `/agromap3d/` GitHub Pages path. Fonts load from Google Fonts when available, with local system fallbacks.
 
 ## Add the paper, code, and dataset links
 
