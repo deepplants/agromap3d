@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e32">
+  <title>AgroMap3D · WACV 2027</title>
+  <meta name="description" content="AgroMap3D: Reliability-Aware Dense Mapping from Agricultural UAV Video. WACV 2027. Research by DeepPlants and Sapienza University of Rome.">
+  <meta property="og:title" content="AgroMap3D · WACV 2027">
+  <meta property="og:description" content="Reliability-aware dense 3D mapping for agricultural UAV video. Paper, code, dataset, and demonstrations.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://deepplants.github.io/argomap3d/assets/images/social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="AgroMap3D: Reliability-Aware Dense Mapping from Agricultural UAV Video">
+  <meta name="citation_author" content="Ahmad, Javed">
+  <meta name="citation_author" content="Ahmad, Shafiq">
+  <meta name="citation_author" content="Amiri, Dario">
+  <meta name="citation_author" content="Pirri, Fiora">
+  <meta name="citation_conference_title" content="IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2027">
+  <link rel="canonical" href="https://deepplants.github.io/argomap3d/">
+  <meta property="og:url" content="https://deepplants.github.io/argomap3d/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="nav wrap">
+      <a class="wordmark" href="#" aria-label="AgroMap3D home">AgroMap<span>3D</span></a>
+      <nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#dataset">Dataset</a><a href="#citation">Citation</a></nav>
+      <a class="nav-paper" data-paper href="#resources">Paper <span class="button-status" data-paper-status>Coming soon</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="project-title">
+      <div class="hero-heading">
+        <div class="eyebrow"><span class="conference">WACV 2027</span><span>Applications Track</span></div>
+        <h1 id="project-title">AgroMap<span>3D</span></h1>
+        <p class="paper-title">Reliability-Aware Dense Mapping<br class="desktop-break"> from Agricultural UAV Video</p>
+        <p class="hero-description">From moving vegetation to coherent field maps.<br>A reliability-aware approach to dense agricultural reconstruction.</p>
+        <div class="authors" aria-label="Authors">Javed Ahmad<sup>1</sup><span>·</span>Shafiq Ahmad<sup>1</sup><span>·</span>Dario Amiri<sup>1</sup><span>·</span>Fiora Pirri<sup>1,2</sup></div>
+        <div class="affiliations"><span><sup>1</sup> DeepPlants, Rome, Italy</span><span><sup>2</sup> DIAG, Sapienza University of Rome, Italy</span></div>
+        <div class="institution-logos" aria-label="Research affiliations">
+          <a class="institution-logo deepplants-logo" href="https://deepplants.com/" target="_blank" rel="noopener" aria-label="DeepPlants official website"><img src="assets/logos/deepplants.png" width="300" height="100" alt="DeepPlants"></a>
+          <a class="institution-logo sapienza-logo" href="https://www.uniroma1.it/" target="_blank" rel="noopener" aria-label="Sapienza University of Rome official website"><img src="assets/logos/sapienza.png" width="247" height="120" alt="Sapienza Università di Roma"></a>
+        </div>
+        <div class="resource-actions" aria-label="Project resources">
+          <a class="button primary" data-paper href="#resources"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7Zm0 0v5h5M9 12h6m-6 4h6"/></svg>Paper <span class="button-status" data-paper-status>Coming soon</span></a>
+          <a class="button" data-code href="#resources"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>Code <span class="button-status" data-code-status>Coming soon</span></a>
+          <a class="button" data-dataset href="#dataset"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/></svg>Dataset <span class="button-status" data-dataset-status>Coming soon</span></a>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <div class="image-label"><span class="live-dot"></span>FROM UAV VIDEO TO DENSE 3D</div>
+        <img class="hero-field" src="assets/images/field.webp" width="1600" height="900" alt="UAV view along crop rows, with thin vegetation and repetitive agricultural structure" fetchpriority="high">
+        <div class="visual-divider"><span>RGB observation</span><svg viewBox="0 0 36 24" aria-hidden="true"><path d="M2 12h30M23 3l9 9-9 9"/></svg><span>Dense reconstruction</span></div>
+        <div class="hero-reconstruction"><img src="assets/images/reconstruction.webp" width="1700" height="856" alt="AgroMap3D dense point cloud of the agricultural scene, with estimated camera poses"></div>
+        <figcaption><span class="coordinate" aria-hidden="true">x &nbsp; y &nbsp; z</span>Real agricultural video. Reconstructed in 3D.</figcaption>
+      </figure>
+    </section>
+
+    <div class="facts wrap" aria-label="Evaluation at a glance">
+      <div><strong>22</strong><span>Agricultural sequences</span></div><div><strong>42 <small>min</small></strong><span>Evaluated video</span></div><div><strong>0.219 <small>m</small></strong><span>Mean trajectory ATE</span></div><div><strong>22 / 22</strong><span>ATE gains with reliability<sup>*</sup></span></div>
+    </div>
+
+    <section id="overview" class="section wrap overview" aria-labelledby="overview-title">
+      <div class="section-label">01 / OVERVIEW</div>
+      <div class="section-body"><h2 id="overview-title">Reliable constraints.<br>Coherent field maps.</h2>
+        <p class="lead">Agricultural scenes challenge visual mapping: crop rows repeat, texture is weak, and vegetation moves in the wind. AgroMap3D estimates which visual constraints to trust while retaining the geometry of the plants.</p>
+        <details class="abstract" open><summary>Abstract <span aria-hidden="true">−</span></summary><p>Dense 3D mapping from agricultural UAV video is difficult due to repetitive crop structure, weak texture, thin vegetation, and wind-driven motion, which can make visual constraints ambiguous or temporally inconsistent. We present <strong>AgroMap3D</strong>, a reliability-aware framework that uses feed-forward 3D geometry as a local provider and reconciles relative constraints through pose-graph optimization. A dual-rate reliability mechanism evaluates stability on keyframe pairs and a denser temporal stream, down-weighting unreliable pose constraints while retaining vegetation geometry. When available, an uncertain global pose cue provides metric and field-scale context, and the refined poses assemble the local geometry into a dense map. We evaluate AgroMap3D on 22 agricultural UAV sequences under a controlled degraded-pose-cue protocol. The global cue alone achieves 0.300 m mean ATE; adding local geometry reduces it to 0.254 m, while the proposed reliability further reduces it to 0.219 m and improves ATE on all 22 sequences. Across the same progression, RPE-T decreases from 0.258 m to 0.215 m and 0.204 m, while mean rotation error decreases from 6.2° to 5.3° and 5.0°. These results demonstrate complementary gains from field-scale anchoring, local visual refinement, and reliability-aware constraint weighting. Code, evaluation sequences, and trajectory information will be released to support reproducibility.</p></details>
+        <figure class="overview-teaser"><img src="assets/images/teaser.webp" width="1900" height="1245" loading="lazy" alt="AgroMap3D dense agricultural field map with camera trajectory and examples of repetitive crops, dry vegetation, and wind-driven motion"><figcaption>From agricultural UAV observations to a coherent dense field map.</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="method" class="section method-section" aria-labelledby="method-title">
+      <div class="wrap"><div class="section-top"><div><div class="section-label">02 / THE APPROACH</div><h2 id="method-title">Local geometry.<br>A field-scale perspective.</h2></div><p class="section-intro">A modular pipeline that brings learned geometry, temporal reliability, and uncertain pose cues into one mapping framework.</p></div>
+        <div class="method-steps"><article><span class="step-number">01</span><h3>Recover local geometry</h3><p>A feed-forward 3D model provides dense local pointmaps and relative camera constraints from UAV keyframes.</p></article><article><span class="step-number">02</span><h3>Measure reliability</h3><p>Keyframe pairs and a denser temporal stream identify unstable evidence and reduce its influence on pose estimation.</p></article><article><span class="step-number">03</span><h3>Refine and assemble</h3><p>Pose-graph optimization combines the weighted constraints with an optional global pose cue to assemble the dense map.</p></article></div>
+      </div>
+    </section>
+
+    <section id="demos" class="section wrap" aria-labelledby="demos-title">
+      <div class="section-top"><div><div class="section-label">03 / IN THE FIELD</div><h2 id="demos-title">See the reconstruction.</h2></div><p class="section-intro">Dense agricultural geometry and camera trajectories, visualized from real evaluation sequences.</p></div>
+      <article class="demo featured-demo">
+        <div class="demo-media" data-video-slot="overview"><img src="assets/images/teaser.webp" width="1900" height="1245" alt="Preview of AgroMap3D field reconstructions"></div>
+        <div class="demo-caption"><span class="mini-label">PROJECT VIDEO · 1 MIN 35 SEC</span><h3>AgroMap3D in the field</h3><p>Dense reconstruction across repetitive crop rows, dry vineyard scenes, and wind-driven vegetation.</p></div>
+      </article>
+      <div class="demo-grid reconstruction-stills">
+        <article class="demo"><div class="demo-media"><img src="assets/images/reconstruction.webp" width="1900" height="957" loading="lazy" alt="AgroMap3D reconstruction of green agricultural vegetation with camera poses"></div><div class="demo-caption"><span class="mini-label">GREEN VEGETATION</span><h3>Structure through the crop rows</h3><p>Dense geometry and the estimated camera trajectory in a green agricultural scene.</p></div></article>
+        <article class="demo"><div class="demo-media"><img src="assets/images/dry.webp" width="1900" height="1140" loading="lazy" alt="AgroMap3D dense reconstruction of a dry agricultural field with camera poses"></div><div class="demo-caption"><span class="mini-label">DRY FIELD</span><h3>Mapping sparse vegetation</h3><p>Reconstructed field structure and camera poses under dry, low-texture conditions.</p></div></article>
+      </div>
+    </section>
+
+    <section id="results" class="section result-section" aria-labelledby="results-title"><div class="wrap">
+      <div class="section-top"><div><div class="section-label">04 / CONTROLLED EVALUATION</div><h2 id="results-title">Each component contributes.</h2></div><p class="section-intro">Mean absolute trajectory error across the same 22 sequences. Lower is better.</p></div>
+      <div class="result-layout"><div class="result-bars" role="img" aria-label="Mean ATE: global pose cue only, 0.300 meters; with local geometry, 0.254 meters; with reliability, 0.219 meters."><div class="bar-row"><div class="bar-label">Global pose cue only <strong>0.300 <small>m</small></strong></div><div class="bar-track"><div style="--bar:100%" class="bar cue"></div></div></div><div class="bar-row"><div class="bar-label">+ Local geometry <strong>0.254 <small>m</small></strong></div><div class="bar-track"><div style="--bar:84.67%" class="bar geometry"></div></div></div><div class="bar-row"><div class="bar-label">+ Dual-rate reliability <strong>0.219 <small>m</small></strong></div><div class="bar-track"><div style="--bar:73%" class="bar reliability"></div></div></div><div class="bar-axis"><span>0</span><span>Mean ATE (m) →</span><span>0.300</span></div></div><aside class="result-callout"><strong>13.8<span>%</span></strong><h3>lower mean ATE</h3><p>when adding reliability to local geometry and the same global pose cue.</p></aside></div>
+      <p class="protocol-note"><sup>*</sup> Reliability improves ATE on all 22 sequences relative to local geometry with the same cue. The cue is generated by controlled degradation of the trajectory reference. Metrics use common Sim(3) alignment; these results do not constitute an independent GNSS positioning benchmark. Dense-map quality is assessed qualitatively.</p>
+      <div class="comparison-grid"><figure><img src="assets/images/cue-only.webp" width="1700" height="856" loading="lazy" alt="Dense geometry assembled using the degraded global pose cue alone"><figcaption><span class="mini-label">GLOBAL CUE ONLY</span>Assembly using the degraded pose cue</figcaption></figure><figure><img src="assets/images/reconstruction.webp" width="1700" height="856" loading="lazy" alt="Dense geometry assembled using AgroMap3D refined camera poses"><figcaption><span class="mini-label">AGROMAP3D</span>Assembly using refined camera poses</figcaption></figure></div>
+    </div></section>
+
+    <section id="dataset" class="section wrap dataset-section" aria-labelledby="dataset-title">
+      <div class="dataset-image"><img src="assets/images/field-wide.webp" width="1400" height="788" alt="Agricultural crop rows in the UAV evaluation set" loading="lazy"><span>AGRICULTURAL UAV EVALUATION SET</span></div>
+      <div><div class="section-label">05 / THE DATASET</div><h2 id="dataset-title">Real fields.<br>Challenging flights.</h2><p class="lead">22 agricultural UAV sequences captured with DJI Mavic 3 and DJI Mini platforms, covering repetitive rows, thin vegetation, and varied flight motion.</p><div class="dataset-tags"><span>RGB video</span><span>Trajectory references</span><span>Evaluation windows</span><span>Reproducible protocol</span></div><p class="dataset-description">42.02 minutes of evaluated video and 6,653 geometric keyframes. Sequences include forward flights, turn-backs, revisits, and 360° orbits.</p><p class="reference-note">Mavic 3 references use RTK-based positioning; Mini references use non-RTK onboard positioning.</p><a class="text-link" data-dataset href="#resources">Dataset release <span data-dataset-status>Coming soon</span> <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section id="resources" class="section resources-section"><div class="wrap"><div class="section-label">06 / RESEARCH RESOURCES</div><h2>Explore. Reproduce. Build.</h2><div class="resources-grid">
+      <a data-paper class="resource-card" href="mailto:javed@deepplants.com?subject=AgroMap3D%20paper"><span class="resource-number">01 <span>↗</span></span><h3>Paper</h3><p>The method, experimental protocol, and full evaluation.</p><span class="resource-state" data-paper-label>arXiv preprint forthcoming</span></a>
+      <a data-code class="resource-card" href="mailto:javed@deepplants.com?subject=AgroMap3D%20code%20release"><span class="resource-number">02 <span>↗</span></span><h3>Code</h3><p>Implementation and configurations for reproducible mapping.</p><span class="resource-state" data-code-status>Coming soon · Contact authors</span></a>
+      <a data-dataset class="resource-card" href="mailto:javed@deepplants.com?subject=AgroMap3D%20dataset%20release"><span class="resource-number">03 <span>↗</span></span><h3>Dataset</h3><p>Agricultural video sequences and trajectory information.</p><span class="resource-state" data-dataset-status>Coming soon · Contact authors</span></a>
+    </div><p class="release-note" id="arxiv-status">arXiv preprint forthcoming.</p></div></section>
+
+    <section id="citation" class="section wrap citation-section" aria-labelledby="citation-title"><div><div class="section-label">07 / CITATION</div><h2 id="citation-title">Build on this work.</h2><p>If AgroMap3D supports your research,<br>please consider citing our paper.</p><a class="text-link" href="mailto:javed@deepplants.com">Contact the authors <span aria-hidden="true">↗</span></a></div><div class="citation-box"><div class="citation-toolbar"><span>BibTeX</span><button id="copy-citation" type="button">Copy citation <span aria-hidden="true">⧉</span></button></div><pre><code id="bibtex">@inproceedings{ahmad2027agromap3d,
+  title     = {AgroMap3D: Reliability-Aware Dense
+               Mapping from Agricultural UAV Video},
+  author    = {Ahmad, Javed and Ahmad, Shafiq and
+               Amiri, Dario and Pirri, Fiora},
+  booktitle = {Proceedings of the IEEE/CVF Winter
+               Conference on Applications of
+               Computer Vision (WACV)},
+  year      = {2027}
+}</code></pre><span id="copy-status" class="sr-only" role="status"></span></div></section>
+  </main>
+  <footer class="footer wrap"><a class="wordmark" href="#">AgroMap<span>3D</span></a><p>DeepPlants &amp; Sapienza University of Rome</p><span>WACV 2027</span></footer>
+</body>
+</html>

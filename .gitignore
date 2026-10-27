@@ -1,0 +1,6 @@
+# Preserve the original video locally; serve the compressed web copy instead.
+/media/main_video.mp4
+.DS_Store
+Thumbs.db
+__pycache__/
+.openai/
