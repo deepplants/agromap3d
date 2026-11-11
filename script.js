@@ -71,8 +71,9 @@
       });
     } else {
       const video = document.createElement("video");
-      video.src = url.href; video.controls = true; video.preload = "none";
-      video.playsInline = true;
+      video.controls = true; video.preload = "metadata";
+      video.autoplay = true; video.muted = true; video.defaultMuted = true;
+      video.loop = true; video.playsInline = true; video.src = url.href;
       if (poster) video.poster = poster;
       video.setAttribute("aria-label", title);
       if (videoConfig.captions) {
@@ -81,6 +82,8 @@
         track.src = videoConfig.captions; video.append(track);
       }
       slot.append(video);
+      // Native controls remain available if the browser blocks autoplay.
+      video.play().catch(() => {});
     }
   });
   const copy = document.getElementById("copy-citation");
