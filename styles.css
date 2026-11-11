@@ -121,7 +121,10 @@ body{font-size:17px;line-height:1.75}
 .hero .affiliations{margin-top:8px}
 .hero .institution-logos{margin-top:16px}
 .hero .institution-logo{display:block;width:180px;height:auto;padding:0;border:0;border-radius:0;background:transparent}
-.hero .institution-logo img{width:100%;height:auto;max-height:none;filter:brightness(0) saturate(100%);opacity:.85}
+/* Separate the wordmark and symbol at the transparent gap in the original asset. */
+.hero .deepplants-logo{position:relative}
+.hero .institution-logo img{width:100%;height:auto;max-height:none;filter:none;opacity:1;clip-path:inset(0 0 0 80%)}
+.hero .deepplants-logo::before{content:"";position:absolute;inset:0;background:url("assets/logos/deepplants.png") center/100% 100% no-repeat;filter:brightness(0);clip-path:inset(0 20% 0 0);pointer-events:none}
 .hero .institution-logo:hover{outline:none}
 .hero .hero-description{max-width:760px;margin:0 auto}
 .hero .resource-actions{width:100%;max-width:540px;margin:26px auto 0}
