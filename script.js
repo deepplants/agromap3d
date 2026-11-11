@@ -23,11 +23,12 @@
     else if (publicUrl(config.paperUrl || config.arxivUrl)) el.textContent = "Read the paper ↗";
   });
   const arxiv = publicUrl(config.arxivUrl);
-  if (arxiv) {
+  const arxivStatus = document.getElementById("arxiv-status");
+  if (arxiv && arxivStatus) {
     const link = document.createElement("a");
     link.href = arxiv; link.textContent = "Read the arXiv preprint ↗";
     link.target = "_blank"; link.rel = "noopener";
-    document.getElementById("arxiv-status").replaceChildren(link);
+    arxivStatus.replaceChildren(link);
   }
   const siteUrl = publicUrl(config.siteUrl);
   if (siteUrl) {
@@ -35,7 +36,7 @@
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.append(canonical); }
     canonical.href = siteUrl;
     const ogImage = document.querySelector('meta[property="og:image"]');
-    ogImage.content = new URL("assets/images/social.jpg", siteUrl.endsWith("/") ? siteUrl : siteUrl + "/").href;
+    if (ogImage) ogImage.content = new URL("assets/images/social.jpg", siteUrl.endsWith("/") ? siteUrl : siteUrl + "/").href;
   }
   document.querySelectorAll("[data-video-slot]").forEach(slot => {
     const videoConfig = config.videos?.[slot.dataset.videoSlot];
@@ -47,19 +48,23 @@
     if (url.origin !== location.origin && url.protocol !== "https:") return;
     const youtube = ["www.youtube-nocookie.com", "www.youtube.com", "youtube.com"].includes(url.hostname) && /^\/embed\/[\w-]+$/.test(url.pathname);
     const poster = slot.querySelector("img")?.src;
+    const title = videoConfig.title || "AgroMap3D reconstruction demo";
     slot.replaceChildren();
     if (youtube) {
       // Load external players only after an explicit click, avoiding third-party requests on page load.
       const button = document.createElement("button");
       button.className = "video-start"; button.type = "button";
-      const image = document.createElement("img"); image.src = poster; image.alt = "";
+      if (poster) {
+        const image = document.createElement("img"); image.src = poster; image.alt = "";
+        button.append(image);
+      }
       const label = document.createElement("span"); label.textContent = "▶ Play demo";
-      button.setAttribute("aria-label", `Play ${videoConfig.title}`);
-      button.append(image, label); slot.append(button);
+      button.setAttribute("aria-label", `Play ${title}`);
+      button.append(label); slot.append(button);
       button.addEventListener("click", () => {
         const iframe = document.createElement("iframe");
         url.hostname = "www.youtube-nocookie.com";
-        iframe.src = url.href; iframe.title = videoConfig.title;
+        iframe.src = url.href; iframe.title = title;
         iframe.allow = "fullscreen; picture-in-picture"; iframe.allowFullscreen = true;
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
         slot.replaceChildren(iframe);
@@ -67,8 +72,9 @@
     } else {
       const video = document.createElement("video");
       video.src = url.href; video.controls = true; video.preload = "none";
-      video.playsInline = true; video.poster = poster;
-      video.setAttribute("aria-label", videoConfig.title);
+      video.playsInline = true;
+      if (poster) video.poster = poster;
+      video.setAttribute("aria-label", title);
       if (videoConfig.captions) {
         const track = document.createElement("track");
         track.kind = "captions"; track.srclang = "en"; track.label = "English";
@@ -78,17 +84,19 @@
     }
   });
   const copy = document.getElementById("copy-citation");
-  copy.addEventListener("click", async () => {
-    const code = document.getElementById("bibtex");
+  const code = document.getElementById("bibtex");
+  const copyStatus = document.getElementById("copy-status");
+  if (copy && code) copy.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(code.textContent);
       copy.textContent = "Copied ✓";
-      document.getElementById("copy-status").textContent = "Citation copied to clipboard.";
+      if (copyStatus) copyStatus.textContent = "Citation copied to clipboard.";
       setTimeout(() => { copy.textContent = "Copy citation ⧉"; }, 2500);
     } catch {
       const range = document.createRange(); range.selectNodeContents(code);
-      const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
-      document.getElementById("copy-status").textContent = "Citation selected. Press Control+C or Command+C to copy.";
+      const selection = window.getSelection();
+      if (selection) { selection.removeAllRanges(); selection.addRange(range); }
+      if (copyStatus) copyStatus.textContent = "Citation selected. Press Control+C or Command+C to copy.";
     }
   });
 })();
