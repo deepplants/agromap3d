@@ -145,3 +145,7 @@ body{font-size:17px;line-height:1.75}
 .hero-teaser-crop{position:relative;aspect-ratio:1900 / 890;overflow:hidden}
 .hero .hero-teaser{position:absolute;top:0;left:0;width:100%;height:auto;padding:0;transform:translateY(-9.638554%)}
 @media(max-width:760px){.hero .paper-title{white-space:normal;font-size:22px}}
+
+/* Conference branding uses the same width as the affiliation logo. */
+.hero .conference-logo{display:block;width:180px;height:auto;margin:0 auto}
+@media(max-width:580px){.hero .conference-logo{width:160px}}
